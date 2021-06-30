@@ -5,7 +5,7 @@ using UnityEngine;
 public class Scroller : MonoBehaviour
 
 
-// 21-05-29 배경스크롤 정성호 작성
+// 20210701 배경스크롤 정성호 작성
 // 참고 : https://www.youtube.com/watch?v=asraLkuR3Jg
 {
     // Start is called before the first frame update
