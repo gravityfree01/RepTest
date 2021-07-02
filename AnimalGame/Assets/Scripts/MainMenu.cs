@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickLoad()
     {
-        Debug.Log("불러오기");
+        Debug.Log("랭킹");
     }
 
     public void OnClickOption()
