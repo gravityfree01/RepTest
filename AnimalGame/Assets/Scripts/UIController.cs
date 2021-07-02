@@ -8,8 +8,8 @@ using UnityEngine;
 * 사용함수 : public class UIController
 * @date : 2021-07-01
 * @author : 정성호
-* @Comment : 2020-07-02 UI컨트롤러 정성호 작성
-* ex.) 메인메뉴에 들어가는 버튼 로직을 관리하는 스크립트
+* @Comment : 2020-07-03 UI컨트롤러 정성호 작성중
+* ????????????
 * 참고 : 
 */
 
@@ -58,10 +58,34 @@ public class UIController : MonoBehaviour{
 
     }
 
+
+    /*
+     * @date : 2021-07-03
+     * @author : 정성호
+     * 새로운 게임으로 진행하는 버튼 이벤트 함수
+     * 
+     * 현재는 디버그 모드 상태임 로그만 찍힘
+     * 
+     */
+
     // 게임 시작
-    public void OnClickGameStart(){
-        
+    public void OnClickGameStart()
+    {
+        Debug.Log("새 게임");
     }
+
+    // 랭킹
+    public void OnClickLoad()
+    {
+
+    }
+
+    // 옵션
+    public void OnClickOption()
+    {
+
+    }
+
 
     // 종료 버튼
     public void ExitGame(){
