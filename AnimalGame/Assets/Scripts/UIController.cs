@@ -9,7 +9,7 @@ using UnityEngine;
 * @date : 2021-07-01
 * @author : 정성호
 * @Comment : 2020-07-03 UI컨트롤러 정성호 작성중
-* ????????????
+* 현재까지 작업된것 : 스크립트 파일에 일시정지, 계속하기 기능 추가 테스트(현재 임시로 랭킹 버튼 클릭시 일시정지 기능 작동, 계속하기버튼클릭시 다시 제계 정상 작동 확인)
 * 참고 : 
 */
 
@@ -20,7 +20,7 @@ public class UIController : MonoBehaviour{
     void Start(){
         logic=GameObject.Find("GameManager").GetComponent<Logic>();
         // SH 게임매니저 오브젝트 찾기
-        menuUI = GameObject.FindWithTag("Menu");
+        menuUI = GameObject.FindWithTag("Menu"); // SH 2021-07-03
     }
 
     void Update(){
@@ -57,17 +57,15 @@ public class UIController : MonoBehaviour{
     {
         logic.SetState(Logic.GameState.PAUSE);
     } //
-    public void OnClickResumeMenu() 
+    public void OnClickResumeMenu()  // SH 2021-07-03
     {
-        // 상황에 따라 게임 진행중에 멈춤이 진행되었던 경우.
-        // 처음화면에서 게임 멈춤이 되었을경우 예외처리.
         logic.SetState(Logic.GameState.RESUME);
     }
 
 
 
-
-    public void OnClosePauseMenu(){ // SH 일시정지버튼 비활성화
+    // SH 일시정지버튼 비활성화
+    public void OnClosePauseMenu(){ 
         // 상황에 따라 게임 진행중에 멈춤이 진행되었던 경우.
         // 처음화면에서 게임 멈춤이 되었을경우 예외처리.
 
