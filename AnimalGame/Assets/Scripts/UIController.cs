@@ -91,26 +91,29 @@ public class UIController : MonoBehaviour{
     }
 
     // 랭킹 - 현재 로드로 작성했지만 테스트 완료후 수정 예정
-    public void OnClickLoad()
+    public void OnClickaRnking()
     {
-
+        Debug.Log("랭킹");
     }
 
     // 옵션
     public void OnClickOption()
     {
-
+        Debug.Log("옵션");
     }
 
 
-    // 종료 버튼 - 씬에서 수정해야함
-    public void ExitGame(){
-#if UNITY_ANDROID // 안드로이드에선 꺼짐.유니티에디터에선 로그남김
+    // 종료 버튼
+
+    public void ExitGame() {
+#if UNITY_ANDROID
         Application.Quit();
 #elif UNITY_EDITOR
         Debug.Log("Game Quit");
 #endif
     }
+    // SH 안드로이드에선 꺼짐.유니티에디터에선 로그남김
+
     private void Initialize() // SH 2021-07-03
     {
         menuUI.SetActive(false);
@@ -124,8 +127,6 @@ public class UIController : MonoBehaviour{
     {
         Time.timeScale = 1f;
         menuUI.SetActive(false);
-
-
     }
 
 
