@@ -65,6 +65,7 @@ public class UIController : MonoBehaviour{
      * 새로운 게임으로 진행하는 버튼 이벤트 함수
      * 
      * 현재는 디버그 모드 상태임 로그만 찍힘
+     * https://www.youtube.com/watch?v=LooUj77MVSU&t=126s 참고
      * 
      */
 
@@ -74,7 +75,7 @@ public class UIController : MonoBehaviour{
         Debug.Log("새 게임");
     }
 
-    // 랭킹
+    // 랭킹 - 현재 로드로 작성했지만 테스트 완료후 수정 예정
     public void OnClickLoad()
     {
 
@@ -87,7 +88,7 @@ public class UIController : MonoBehaviour{
     }
 
 
-    // 종료 버튼
+    // 종료 버튼 - 씬에서 수정해야함
     public void ExitGame(){
 #if UNITY_ANDROID // 안드로이드에선 꺼짐.유니티에디터에선 로그남김
         Application.Quit();
