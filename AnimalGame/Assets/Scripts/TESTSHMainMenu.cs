@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+public class TESTSHMainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     // 20210701 정성호 작성버튼 작동
     // 참고 : https://www.youtube.com/watch?v=LooUj77MVSU&t=247s
     void Update()
