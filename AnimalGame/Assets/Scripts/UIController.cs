@@ -14,11 +14,13 @@ using UnityEngine;
 */
 
 
-public class UIController : MonoBehaviour{ 
-    Logic logic = null;
+public class UIController : MonoBehaviour{
+    Logic logic; //     2021-07-03 Logic logic = null;
+    private GameObject menuUI;
     void Start(){
         logic=GameObject.Find("GameManager").GetComponent<Logic>();
         // SH 게임매니저 오브젝트 찾기
+        menuUI = GameObject.FindWithTag("Menu");
     }
 
     void Update(){
@@ -28,7 +30,7 @@ public class UIController : MonoBehaviour{
         switch (logic.state){
 
             case Logic.GameState.NONE:
-                /////
+                Initialize(); // SH 2021-07-03
                 break;
             case Logic.GameState.READY:
                 /////
@@ -37,7 +39,10 @@ public class UIController : MonoBehaviour{
                 /////
                 break;
             case Logic.GameState.PAUSE:
-                /////
+                ShowMenu();
+                break; // SH 2021-07-03
+            case Logic.GameState.RESUME: // SH 2021-07-03
+                Resume(); // SH 2021-07-03
                 break;
             case Logic.GameState.CLEAR:
                 /////
@@ -48,9 +53,19 @@ public class UIController : MonoBehaviour{
         }
     } // SH 어떤 상황이 생겼을때 어떤 행동을 취해야할지
 
-    public void OnClickPauseMenu(){
-        logic.SetState(Logic.GameState.PAUSE); // SH 일시정지버튼을 활성화
+    public void OnClickPauseMenu() // SH 일시정지버튼 비활성화
+    {
+        logic.SetState(Logic.GameState.PAUSE);
+    } //
+    public void OnClickResumeMenu() 
+    {
+        // 상황에 따라 게임 진행중에 멈춤이 진행되었던 경우.
+        // 처음화면에서 게임 멈춤이 되었을경우 예외처리.
+        logic.SetState(Logic.GameState.RESUME);
     }
+
+
+
 
     public void OnClosePauseMenu(){ // SH 일시정지버튼 비활성화
         // 상황에 따라 게임 진행중에 멈춤이 진행되었던 경우.
@@ -72,7 +87,7 @@ public class UIController : MonoBehaviour{
     // 게임 시작
     public void OnClickGameStart()
     {
-        Debug.Log("새 게임");
+        Debug.Log("게임시작");
     }
 
     // 랭킹 - 현재 로드로 작성했지만 테스트 완료후 수정 예정
@@ -95,6 +110,22 @@ public class UIController : MonoBehaviour{
 #elif UNITY_EDITOR
         Debug.Log("Game Quit");
 #endif
+    }
+    private void Initialize() // SH 2021-07-03
+    {
+        menuUI.SetActive(false);
+    }
+    private void ShowMenu() // SH 2021-07-03
+    {
+        Time.timeScale = 0f;
+        menuUI.SetActive(true);
+    }
+    private void Resume() // SH 2021-07-03
+    {
+        Time.timeScale = 1f;
+        menuUI.SetActive(false);
+
+
     }
 
 
