@@ -9,8 +9,8 @@ using UnityEngine;
 * 사용함수 : public class TEST_SH_BackgroundScroll
 * @date : 2021-07-01
 * @author : 정성호
-* @Comment : 2020-07-01 배경스크롤 정성호 작성
-* 메인메뉴에 들어가는 버튼 로직을 관리하는 스크립트
+* @Comment : 2020-07-01  정성호 작성
+* 배경스크롤 스크립트
 * 참고 : https://www.youtube.com/watch?v=asraLkuR3Jg
 */
 
