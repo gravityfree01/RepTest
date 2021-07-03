@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// 2021-07-03 박성수 작성
-// 게임 좌우 버튼 생성중
+
 public class TestClickEventSS : MonoBehaviour{
     public GameObject btn1;
     public GameObject btn2;
     private GameObject obj = null;
 
+    
     enum Direction { LEFT, RIGHT, PAUSE};
     Direction dir = Direction.LEFT;
-    
 
+    // 2021-07-03 박성수 작성
+    // 게임 방향키클릭식 Player 스프라이트의 움직이는 스피드조절값
     public float speed = 0.2f;
 
     private void Start(){
@@ -37,7 +38,9 @@ public class TestClickEventSS : MonoBehaviour{
     }
     private void Update()
     {
-        if(dir == Direction.LEFT)
+        // 2021-07-03 박성수 작성
+        // 게임 방향키클릭으로 Player 스프라이트의 움직임의 속도 조절
+        if (dir == Direction.LEFT)
         {
             obj.transform.position -= new Vector3(speed * Time.fixedDeltaTime, 0, 0);
         }
@@ -88,6 +91,8 @@ public class TestClickEventSS : MonoBehaviour{
         */
     }
 
+    // 2021-07-03 박성수 작성
+    // UICanvs 에 PAUSE 버튼 생성
     public void Pause()
     {
         dir = Direction.PAUSE;
