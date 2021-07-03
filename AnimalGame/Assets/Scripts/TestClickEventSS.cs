@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TestClickEventSS : MonoBehaviour{
     public GameObject btn1;
     public GameObject btn2;
+
     private GameObject obj = null;
 
     
@@ -30,7 +31,7 @@ public class TestClickEventSS : MonoBehaviour{
 
     private bool FindObject()
     {
-        if (obj == null) { 
+        if (obj==null) { 
        obj =GameObject.Find("Player").gameObject;
             return true;
         }
@@ -43,52 +44,27 @@ public class TestClickEventSS : MonoBehaviour{
         if (dir == Direction.LEFT)
         {
             obj.transform.position -= new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+            obj.GetComponent<SpriteRenderer>().flipX = true;
         }
         else if(dir == Direction.RIGHT)
         {
             obj.transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+            obj.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
+    
 
 
     public void OnClickButton1()
     {
         //btn1 왼쪽 방향키
-
-        //obj.transform.position -= new Vector3(0.15f,0,0);
         dir = Direction.LEFT;
-
-        /*
-        btn2.GetComponent<Button>().interactable = true;
-        btn1.GetComponent<Button>().interactable = false;
-        btn2.GetComponent<Image>().color = Color.red;
-        btn1.GetComponent<Image>().color = Color.white;
-
-        btn1.gameObject.SetActive(false);
-        btn2.gameObject.SetActive(true);
-
-        if (!obj.gameObject.activeSelf) return;
-        obj.gameObject.SetActive(false);
-        */
     }
 
     public void OnClickButton2()
     {
         //btn2 오른쪽 방향키
-        //obj.transform.position += new Vector3(0.15f, 0, 0);
         dir = Direction.RIGHT;
-        /*
-        btn1.GetComponent<Button>().interactable = true;
-        btn2.GetComponent<Button>().interactable = false;
-        btn1.GetComponent<Image>().color = Color.red;
-        btn2.GetComponent<Image>().color = Color.white;
-
-        btn2.gameObject.SetActive(false);
-        btn1.gameObject.SetActive(true);
-
-        if (obj.gameObject.activeSelf) return;
-        obj.gameObject.SetActive(true);
-        */
     }
 
     // 2021-07-03 박성수 작성
