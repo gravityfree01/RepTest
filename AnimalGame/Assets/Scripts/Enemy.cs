@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Enemy : ObjectParent{
 
-    private void Init(){
+    string playerTag = "Player";
 
+    void Update(){
+        Destroy(this.gameObject);
     }
 
-    void Start()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        
+        if(col.gameObject.tag == playerTag )
+        {
+            Destroy(this.gameObject);
+            Destroy(col.gameObject);
+        }
     }
-
-    void Update()
-    {
-        
-    }
-
-   
 }

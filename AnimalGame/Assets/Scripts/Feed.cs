@@ -4,20 +4,9 @@ using UnityEngine;
 
 public class Feed : ObjectParent
 {
-
-     void Init() {
-
-    }
-    
-    void Start()
-    {
-        
-    }
-
-    
     void Update()
     {
-        
+      
     }
   
 }
