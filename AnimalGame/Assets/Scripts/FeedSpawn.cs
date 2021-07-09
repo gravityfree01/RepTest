@@ -5,7 +5,14 @@ public class FeedSpawn : MonoBehaviour
 
 
 
-// 2021-07-09 정성호 작성
+/** 
+* 사용함수 : 
+* @date : 2021-07-09
+* @author : 정성호
+* @Comment : 
+
+*/
+
 {
     public Feed feed; // 객체 생성
 

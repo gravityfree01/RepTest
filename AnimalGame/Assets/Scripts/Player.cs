@@ -5,6 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 
 
+/** 
+* 사용함수 : 
+* @date : 2021-07-09
+* @author : 정성호
+* @Comment : 
+* 플레이어 이동, 화면범위밖 이동방지 스크립트
+
+*/
 
 {
     public float moveSpeed = 1.0f; // 이동속도

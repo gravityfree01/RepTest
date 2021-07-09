@@ -2,7 +2,15 @@
 
 public class Feed : MonoBehaviour
 
-// 2021-07-09 정성호 작성
+/** 
+* 사용함수 : 
+* @date : 2021-07-09
+* @author : 정성호
+* @Comment : 
+
+*/
+
+
 {
     public GameObject feedObject; // feed라는 프리펩 찾기
     public Transform feedLocation; // 이 feed 움직인다.
@@ -12,11 +20,11 @@ public class Feed : MonoBehaviour
 
     void Update()
     {
-        // 매 프레임마다 미사일이 MoveSpeed 만큼 down방향(Y축 -방향)으로 날라갑니다.
+        // 매 프레임마다 불이 MoveSpeed 만큼 down방향(Y축 -방향)으로 날라갑니다.
         transform.Translate(Vector2.down * MoveSpeed * Time.deltaTime);
-        // 만약에 미사일의 위치가 DestroyYPos를 넘어서면
+        // 만약에 불이 위치가 DestroyYPos를 넘어서면
         if (transform.position.y <= DestroyPosY)
-            // 미사일을 제거
+            // 불을 제거
             GetComponent<Collider2D>().enabled = false;
     }
 
