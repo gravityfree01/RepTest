@@ -8,10 +8,11 @@ public class Logic : MonoBehaviour {
     // 생명력.
     private int hp = 3;
 
-   
+
 
     // 게임 전체적인 상태값을 가지고 있는 공용체
-    public enum GameState { NONE = 0, READY, PLAY, PAUSE, CLEAR, FAIL }
+    // SH RESUME 추가
+    public enum GameState { NONE = 0, READY, PLAY, PAUSE, RESUME, CLEAR, FAIL, SETTINGS, LANGUAGE, SOUND, VIBRATION, AUTOSAVE }
     public GameState state = GameState.NONE;
 
     // 게임 스코어
@@ -37,10 +38,11 @@ public class Logic : MonoBehaviour {
 
 
     // 실질적인 게임로직 함수.
-    private void GameLogic() {
+    // SH RESUME 함수 추가
+    private void GameLogic()
+    {
         switch (state)
         {
-
             case GameState.NONE:
                 Init();
                 break;
@@ -50,16 +52,28 @@ public class Logic : MonoBehaviour {
                 break;
             case GameState.PAUSE:
                 break;
+            case GameState.RESUME:
+                break;
             case GameState.CLEAR:
                 break;
             case GameState.FAIL:
+                break;
+            case GameState.SETTINGS:
+                break;
+            case GameState.LANGUAGE:
+                break;
+            case GameState.SOUND:
+                break;
+            case GameState.VIBRATION:
+                break;
+            case GameState.AUTOSAVE:
                 break;
         }
     }
 
     // 상태값 바꿔주는 함수.
     public void SetState(Logic.GameState state){
-        if (state<0 || state> GameState.FAIL) return;
+        if (state<0 || state> GameState.AUTOSAVE) return;
         this.state=(GameState)state;
     }
 
