@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
 
-<<<<<<< HEAD
-public class Feed : ObjectParent
-{
-    void Update()
-    {
-      
-=======
+
+
 public class Feed : MonoBehaviour
 
 /** 
@@ -41,6 +36,6 @@ public class Feed : MonoBehaviour
         if (collision.CompareTag("Player"))
             GetComponent<Collider2D>().enabled = false; // 불 획득시 오브젝트를 삭제
         // Sfx.SoundPlay(); // 불 획득시 효과음 발생
->>>>>>> a0c64e90c755386897b57f47d6442e64f4e1e1e7
+
     }
 }
