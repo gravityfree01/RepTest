@@ -8,10 +8,13 @@ public class TestClickEventSS : MonoBehaviour{
     public GameObject btn1;
     public GameObject btn2;
 
+    public GameObject FeedSpawnManager;
+
+    public GameObject Feed;
     private GameObject obj = null;
 
     
-    enum Direction { LEFT, RIGHT, PAUSE};
+    enum Direction { LEFT, RIGHT,PAUSE};
     Direction dir = Direction.LEFT;
 
     // 2021-07-03 박성수 작성
@@ -44,7 +47,7 @@ public class TestClickEventSS : MonoBehaviour{
         if (dir == Direction.LEFT)
         {
             obj.transform.position -= new Vector3(speed * Time.fixedDeltaTime, 0, 0);
-            obj.GetComponent<SpriteRenderer>().flipX = true;
+            obj.GetComponent<SpriteRenderer>().flipY = true;
         }
         else if(dir == Direction.RIGHT)
         {
@@ -71,7 +74,18 @@ public class TestClickEventSS : MonoBehaviour{
     // UICanvs 에 PAUSE 버튼 생성
     public void Pause()
     {
-        dir = Direction.PAUSE;
-    }
+        Vector3 pos = Vector3.zero;
 
+        if(dir == Direction.RIGHT)
+        {
+            pos = new Vector3(1.2f, 0, 0);
+        }
+        else if(dir == Direction.LEFT)
+        {
+            pos = new Vector3(-1.2f, 0, 0);
+        }
+
+        Instantiate(Feed, pos , Quaternion.identity, FeedSpawnManager.transform);
+    }
+    
 }

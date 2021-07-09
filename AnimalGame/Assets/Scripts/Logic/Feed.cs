@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 
-public class Feed : MonoBehaviour
 
+
+public class Feed : MonoBehaviour
 /** 
 * 사용함수 : 
 * @date : 2021-07-09
 * @author : 정성호
 * @Comment : 
-
 */
-
 
 {
     public GameObject feedObject; // feed라는 프리펩 찾기
@@ -34,5 +33,6 @@ public class Feed : MonoBehaviour
         if (collision.CompareTag("Player"))
             GetComponent<Collider2D>().enabled = false; // 불 획득시 오브젝트를 삭제
         // Sfx.SoundPlay(); // 불 획득시 효과음 발생
+
     }
 }
