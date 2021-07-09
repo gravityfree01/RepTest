@@ -6,7 +6,6 @@ public class TEST_SH_GameCountdown : MonoBehaviour
 { 
 
     private int Timer = 0;
-    public GameObject IMG_tutorial; // 튜토리얼 이미지
     public GameObject Num_A;   //1번
     public GameObject Num_B;   //2번
     public GameObject Num_C;   //3번
@@ -16,8 +15,7 @@ public class TEST_SH_GameCountdown : MonoBehaviour
     {
         //시작시 카운트 다운 초기화, 게임 시작 false 설정
         Timer = 0;
-        // 튜토리얼, 나머지 (카운트다운 이미지) 안보이기
-        IMG_tutorial.SetActive(false);
+        // 나머지 (카운트다운 이미지) 안보이기
         Num_A.SetActive(false);
         Num_B.SetActive(false);
         Num_C.SetActive(false);
@@ -38,16 +36,9 @@ public class TEST_SH_GameCountdown : MonoBehaviour
         {
             Timer++;
 
-
-            // Timer가 60보다 작을경우 튜토리얼 켜기
-            if (Timer < 60)
-            {
-                IMG_tutorial.SetActive(true);
-            }
             // Timer가 60보다 클경우 튜토리얼 끄고 3켜기
             if (Timer > 60)
             {
-                IMG_tutorial.SetActive(false);
                 Num_C.SetActive(true);
             }
             // Timer가 90보다 작을경우 3끄고 2켜기
