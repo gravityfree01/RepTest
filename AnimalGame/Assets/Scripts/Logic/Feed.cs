@@ -3,15 +3,12 @@
 
 
 public class Feed : MonoBehaviour
-
 /** 
 * 사용함수 : 
 * @date : 2021-07-09
 * @author : 정성호
 * @Comment : 
-
 */
-
 
 {
     public GameObject feedObject; // feed라는 프리펩 찾기

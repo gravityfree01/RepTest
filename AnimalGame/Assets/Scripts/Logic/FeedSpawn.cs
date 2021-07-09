@@ -1,19 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class FeedSpawn : MonoBehaviour
-
-
 
 /** 
 * 사용함수 : 
 * @date : 2021-07-09
 * @author : 정성호
 * @Comment : 
-
 */
 
-{
+public class FeedSpawn : MonoBehaviour{
     public Feed feed; // 객체 생성
 
     private MemoryPool memoryPool;           // 메모리 풀
