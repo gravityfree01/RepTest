@@ -2,18 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @class Player                         // 클래스 이름
+ * @desc 게임이용자 클래스정보를 담는 클래스      //클래스 설명
+ * @author  정성호                       // 작성자
+ * @date  2021-07-09        //클래스 작성일자
+ */
+
 public class Player : MonoBehaviour
 
 
-/** 
-* 사용함수 : 
-* @date : 2021-07-09
-* @author : 정성호
-* @Comment : 
-* 회장님께서 작성해주신거 현재 잠시 주석처리
+{
+    public float moveSpeed = 1.0f; // 이동속도
+    public Vector3 moveDirection = Vector3.zero; // 이동방향
 
-*/
+    void Update()
+    // 플레이어 이동
+    {
+        /* Negative left, a : -1
+         * Positive right, d :1
+         * Non : 0
+         */
+        float x = Input.GetAxisRaw("Horizontal"); // 방향값 추출(좌우)
+        float y = Input.GetAxisRaw("Vertical"); //  방향값 추출(상하)
+        
+        // 이동방향 설정
+        moveDirection = new Vector3(x, y, 0);
 
+        //새로운 위치 = 현재 위치 + ( 방향 * 속도)
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+        // 플레이어 캐릭터가 화면 범위 바깥으로 나가지 못하도록함
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        if (pos.x < 0f) pos.x = 0f;
+        if (pos.x > 1f) pos.x = 1f;
+        if (pos.y < 0f) pos.y = 0f;
+        if (pos.y > 1f) pos.y = 1f;
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+
+        Vector3 curPos = transform.position; // 현재 위치 가져오기
+        Vector3 nextPos = new Vector3(x, y, 0) * moveSpeed * Time.deltaTime;
+        // tranfom 이동에는 Time.DeltaTime를 꼭 사용
+
+        transform.position = curPos + nextPos;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Tag가 player일 때
+        if (collision.gameObject.tag == "Player")
+        {
+            //Deactive player
+            collision.gameObject.SetActive(false);
+        }
+    }
+
+}
 
 // 회장님께서 작성해주셨던것
 /*
@@ -71,70 +115,6 @@ private void OnCollisionEnter2D(Collision2D col){
 */
 
 
-
-/** 
-* 사용함수 : 
-* @date : 2021-07-09
-* @author : 정성호
-* @Comment : 
-* 플레이어 이동, 화면범위밖 이동방지 스크립트
-
-*/
-
-
-
-
-{
-    public float moveSpeed = 1.0f; // 이동속도
-    public Vector3 moveDirection = Vector3.zero; // 이동방향
-
-    void Update()
-    // 플레이어 이동
-    {
-        /* Negative left, a : -1
-         * Positive right, d :1
-         * Non : 0
-         * 
-         */
-        float x = Input.GetAxisRaw("Horizontal"); // 방향값 추출(좌우)
-        float y = Input.GetAxisRaw("Vertical"); //  방향값 추출(상하)
-        
-        // 이동방향 설정
-        moveDirection = new Vector3(x, y, 0);
-
-        //새로운 위치 = 현재 위치 + ( 방향 * 속도)
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
-
-
-
-        // 플레이어 캐릭터가 화면 범위 바깥으로 나가지 못하도록함
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        if (pos.x < 0f) pos.x = 0f;
-        if (pos.x > 1f) pos.x = 1f;
-        if (pos.y < 0f) pos.y = 0f;
-        if (pos.y > 1f) pos.y = 1f;
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
-
-
-        Vector3 curPos = transform.position; // 현재 위치 가져오기
-        Vector3 nextPos = new Vector3(x, y, 0) * moveSpeed * Time.deltaTime;
-        // tranfom 이동에는 Time.DeltaTime를 꼭 사용
-
-        transform.position = curPos + nextPos;
-    }
-
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Tag가 player일 때
-        if (collision.gameObject.tag == "Player")
-        {
-            //Deactive player
-            collision.gameObject.SetActive(false);
-        }
-    }
-
-}
 
 
 
