@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/** 
-* 사용함수 : public class UIController
-* @date : 2021-07-01
-* @author : 정성호
-* @Comment : 2020-07-06 UI컨트롤러 정성호 작성중
-* 현재까지 작업된것 : 스크립트 파일에 일시정지, 계속하기 기능 추가 테스트(현재 임시로 랭킹 버튼 클릭시 일시정지 기능 작동, 계속하기버튼클릭시 다시 제계 정상 작동 확인)
-* 작업중 : 카운트다운 3초, 랭킹, 언어, 소리, 진동, 현재 버전 표시, 
-* 참고 : 
-*/
+/**
+ * @class UIController                         // 클래스 이름
+ * @desc UI 기능 작동 관련 클래스      //클래스 설명
+ * @author  정성호                       // 작성자
+ * @date  2021-07-01        //클래스 작성일자
+ */
 
 public class UIController : MonoBehaviour
 {
