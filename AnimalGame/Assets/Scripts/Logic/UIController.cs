@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 /** 
 * 사용함수 : public class UIController
 * @date : 2021-07-01
@@ -13,7 +11,6 @@ using UnityEngine;
 * 작업중 : 카운트다운 3초, 랭킹, 언어, 소리, 진동, 현재 버전 표시, 
 * 참고 : 
 */
-
 
 public class UIController : MonoBehaviour
 {
@@ -38,25 +35,25 @@ public class UIController : MonoBehaviour
         {
 
             case Logic.GameState.NONE:
-                Initialize(); // SH 2021-07-03
+                Initialize();
                 break;
             case Logic.GameState.READY:
-                /////
+
                 break;
             case Logic.GameState.PLAY:
-                /////
+
                 break;
             case Logic.GameState.PAUSE:
                 ShowMenu();
-                break; // SH 2021-07-03
-            case Logic.GameState.RESUME: // SH 2021-07-03
-                Resume(); // SH 2021-07-03
+                break;
+            case Logic.GameState.RESUME:
+                Resume();
                 break;
             case Logic.GameState.CLEAR:
-                /////
+
                 break;
             case Logic.GameState.FAIL:
-                /////
+
                 break;
             case Logic.GameState.SETTINGS:
                 ShowSettings();
@@ -74,7 +71,7 @@ public class UIController : MonoBehaviour
 
                 break;
         }
-    } // SH 어떤 상황이 생겼을때 어떤 행동을 취해야할지
+    } 
 
 
 
@@ -117,71 +114,57 @@ public class UIController : MonoBehaviour
     }
 
 
-    // 옵션 - 메인메뉴 , 일시정지메뉴 작동
-    public void OnClickSettings() // SH 2021-07-06 설정 버튼
+    // 
+    /*
+ * @date : 2021-07-06
+ * @author : 정성호
+ * 옵션 - 메인메뉴 , 일시정지메뉴 작동
+ */
+
+    public void OnClickSettings()
     {
         logic.SetState(Logic.GameState.SETTINGS);
     }
 
 
-    public void OnClickLanguage() // SH 2021-07-06 언어 설정 버튼
+    public void OnClickLanguage()
     {
         logic.SetState(Logic.GameState.LANGUAGE);
     }
 
-    public void OnClickSound() // SH 2021-07-06 소리 설정 버튼
+    public void OnClickSound()
     {
         logic.SetState(Logic.GameState.SOUND);
     }
 
-    public void OnClickVibration() // SH 2021-07-06 진동 설정 버튼
+    public void OnClickVibration()
     {
         logic.SetState(Logic.GameState.VIBRATION);
     }
 
-    public void OnClickAutoSave() // SH 2021-07-06 자동저장 설정 버튼
+    public void OnClickAutoSave()
     {
         logic.SetState(Logic.GameState.AUTOSAVE);
     }
 
+
     /*
-{
-    SpawnManager.instance.ClearEnemies(); // SpawnManager에서 적을 모두 사라지게 함
+ * @date : 2021-07-03
+ * @author : 정성호
+ * 현재는 디버그 모드 상태임 로그만 찍힘
+ */
 
-    score = 0;
-    scoreText.text = string.Empty;
-
-    TextContrl.instance.Restart(); // TextContrl에서 게임재시작
-
-    lnvoke("RetryGame", 3f); // 3초후 게임재시작
-
-
-}
-
-// 게임중 일시정지 버튼누른후 다시시작눌러 재시작하는 함수 https://magatron.tistory.com/28
-void RetryGame()
-{
-    StartGame();
-    player.SetActive(true);
-}
-
-*/
-
-
-
-
-    // SH 일시정지버튼 비활성화
     public void OnClickMainMenu()
     {
         Debug.Log("메인메뉴이동버튼");
     }
 
 
-    // SH 일시정지버튼 비활성화
+    // 일시정지버튼 비활성화
     public void OnClosePauseMenu()
     {
         {
-            logic.SetState(Logic.GameState.RESUME);   // SH 2021-07-03
+            logic.SetState(Logic.GameState.RESUME);
         }
         // 상황에 따라 게임 진행중에 멈춤이 진행되었던 경우.
         // 처음화면에서 게임 멈춤이 되었을경우 예외처리.
@@ -194,10 +177,7 @@ void RetryGame()
      * @date : 2021-07-03
      * @author : 정성호
      * 새로운 게임으로 진행하는 버튼 이벤트 함수
-     * 
      * 현재는 디버그 모드 상태임 로그만 찍힘
-     * https://www.youtube.com/watch?v=LooUj77MVSU&t=126s 참고
-     * 
      */
 
     // 게임 시작
@@ -213,7 +193,10 @@ void RetryGame()
     }
 
 
-    // 종료 버튼
+    /*
+ * @date : 2021-07-03
+ * @author : 정성호
+ */
 
     public void ExitGame()
     {
@@ -223,7 +206,6 @@ void RetryGame()
         Debug.Log("Game Quit");
 #endif
     }
-    // SH 안드로이드에선 꺼짐.유니티에디터에선 로그남김
 
 
 
@@ -231,22 +213,17 @@ void RetryGame()
     /*
  * @date : 2021-07-03
  * @author : 정성호
- * 
- * 
- * 
- * 
- * 
  */
 
-    private void Initialize() // SH 2021-07-03 초기값 설정
+    private void Initialize()
     {
         menuUI.SetActive(false);
         settingsUI.SetActive(false);
     }
 
-    private void ShowMenu() // SH 2021-07-03 메뉴를 보여준다
+    private void ShowMenu()
     {
-        Time.timeScale = 0f; // 일시정지
+        Time.timeScale = 0f;
         menuUI.SetActive(true);
     }
 
@@ -255,21 +232,27 @@ void RetryGame()
         settingsUI.SetActive(true);
     }
 
-    private void Resume() // SH 2021-07-03 게임 다시시작
+    private void Resume()
     {
-        Time.timeScale = 1f; // 1배속 다시 제계
+        Time.timeScale = 1f;
         menuUI.SetActive(false);
     }
 
-    private void Vibrate(bool state) // SH 2021-07-06 진동
+
+    /*
+ * @date : 2021-07-03
+ * @author : 정성호
+ * 진동
+ */
+    private void Vibrate(bool state)
     {
-        #if UNITY_ANDROID
+#if UNITY_ANDROID
             if (state)
                 Handheld.Vibrate();
 
             if (!state)
                 Handheld.Vibrate();
-        #endif
+#endif
     }
 
     private void ToggleAudioVolume()
