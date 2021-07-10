@@ -24,8 +24,12 @@ public class EnemySpawnManager : MonoBehaviour
     float gate_4_timer = 0.0f;
     void Update()
     {
-        // 2021-07-08 gate 4개에서 시간차별로 Enemy 가 떨어지는 것
-        // 박성수 작성 
+
+        /**
+        * @desc gate  gate 4개에서 시간차별로 Enemy 가 떨어지는 것
+        * @author  박성수
+        * @date  2021-07-08
+        */
         gate_1_timer += Time.fixedDeltaTime;
         gate_2_timer += Time.fixedDeltaTime;
         gate_3_timer += Time.fixedDeltaTime;
