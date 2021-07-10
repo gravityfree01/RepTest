@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 
 
-
+/**
+ * @class                         // 클래스 이름
+ * @desc  먹이(코인 등) 관련 클라스     //클래스 설명
+ * @author   정성호                      // 작성자
+ * @date  2021-07-09        //클래스 작성일자
+ */
 public class Feed : MonoBehaviour
-/** 
-* 사용함수 : 
-* @date : 2021-07-09
-* @author : 정성호
-* @Comment : 
-*/
 
 {
     public GameObject feedObject; // feed라는 프리펩 찾기
