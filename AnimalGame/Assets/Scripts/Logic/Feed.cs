@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 
-
-/**
- * @class                         // 클래스 이름
- * @desc  먹이(코인 등) 관련 클라스     //클래스 설명
- * @author   정성호                      // 작성자
+/*
+ * @class Feed
+ * @desc  Feed 속성 클래스
+ * @author   정성호
  * @date  2021-07-09        //클래스 작성일자
  */
 public class Feed : MonoBehaviour
-
 {
     public GameObject feedObject; // feed라는 프리펩 찾기
     public Transform feedLocation; // 이 feed 움직인다.
@@ -18,19 +16,23 @@ public class Feed : MonoBehaviour
 
     void Update()
     {
-        // 매 프레임마다 불이 MoveSpeed 만큼 down방향(Y축 -방향)으로 날라갑니다.
         transform.Translate(Vector2.down * MoveSpeed * Time.deltaTime);
-        // 만약에 불이 위치가 DestroyYPos를 넘어서면
+
         if (transform.position.y <= DestroyPosY)
-            // 불을 제거
             GetComponent<Collider2D>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Score.coinAmount += 1; // Score.cs의 coinAmount변수 1씩 증가. (코인 획득시 점수를 1씩 증가)
         if (collision.CompareTag("Player"))
+        {
             GetComponent<Collider2D>().enabled = false; // 불 획득시 오브젝트를 삭제
+            /*@author 정성호
+             * @date 2021-07-11
+             * @summary 충돌시 10점 추가
+             */
+            Score.score += 10;
+        }
         // Sfx.SoundPlay(); // 불 획득시 효과음 발생
 
     }
