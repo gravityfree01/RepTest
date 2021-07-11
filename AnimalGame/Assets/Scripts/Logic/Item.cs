@@ -2,8 +2,8 @@
 
 /*
  * @class Item
- * @desc 아이템 정보를 담는 클래스
- * @author  정성호
+ * @desc  아이템 클래스
+ * @author 정성호
  * @date  2021-07-11
  */
 
@@ -11,9 +11,9 @@ public class Item : MonoBehaviour
 {
     public GameObject itemObject; // 아이템 오브젝트
     public Transform itemLocation;// 아이템 생성 위치
-    public float durationTime;    // 지속 시간  
-    public static bool isEnabled;        // 아이템 활성화 상태
-  
+    public float durationTime;    // 아이템 지속 시간
+    public static bool isEnabled; // 아이템 활성화 상태
+
     private float DestroyPosY = -5f;
 
     void Update()
@@ -29,6 +29,7 @@ public class Item : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GetComponent<Collider2D>().enabled = false;
+            ItemCountdown.countdown = durationTime;
             isEnabled = true;
             Debug.Log("아이템을 섭취함. " + isEnabled);
         }
