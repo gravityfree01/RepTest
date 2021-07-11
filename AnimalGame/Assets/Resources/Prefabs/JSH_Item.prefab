@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9038169927038242608}
   m_Layer: 0
-  m_Name: FeedLocation
+  m_Name: ItemLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119454298343912040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 5503.4854, z: 0}
+  m_LocalPosition: {x: -0.9131739, y: 5503.4854, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8125279675309764177}
@@ -55,8 +55,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7679986201160539882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.009, y: -0.018, z: 0}
+  m_LocalScale: {x: 0.16894284, y: 0.18535157, z: 1}
   m_Children: []
   m_Father: {fileID: 8125279675309764177}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eacd41ab63eb38f46be520216555719e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c7725c0a4d4e784c8d0511da3dd8b6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,10 +122,10 @@ GameObject:
   - component: {fileID: 8125279675309764177}
   - component: {fileID: 5079783753509663209}
   - component: {fileID: 1534796205631929690}
-  - component: {fileID: 5885334586180631162}
+  - component: {fileID: 41592665709798080}
   m_Layer: 0
-  m_Name: JSH_Feed
-  m_TagString: Untagged
+  m_Name: JSH_Item
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5885334586180631162
+--- !u!114 &41592665709798080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,11 +202,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8638853441730261319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd33c099a900cc748b24c610d696b644, type: 3}
+  m_Script: {fileID: 11500000, guid: 72517f444905d8a4ebf67f9dbd791ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedObject: {fileID: 8638853441730261319}
-  feedLocation: {fileID: 9038169927038242608}
-  MoveSpeed: 1
-  feedDelay: 3
-  DestroyPosY: -3
+  itemObject: {fileID: 8638853441730261319}
+  itemLocation: {fileID: 9038169927038242608}
+  durationTime: 3
