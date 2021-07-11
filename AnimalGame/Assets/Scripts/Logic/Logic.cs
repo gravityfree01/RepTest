@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/**
+ * @class     Logic                     // 클래스 이름
+ * @desc       //클래스 설명
+ * @author                         // 작성자
+ * @date  2021-07-??        //클래스 작성일자
+ */
+
 public class Logic : MonoBehaviour {
 
     // 생명력.
@@ -38,7 +45,13 @@ public class Logic : MonoBehaviour {
 
 
     // 실질적인 게임로직 함수.
-    // SH RESUME 함수 추가
+	/**
+* 사용함수 : case GameState.RESUME:
+* @date : 2021-07-04
+* @author : 정성호
+* @Comment : 
+*/
+    // 
     private void GameLogic()
     {
         switch (state)

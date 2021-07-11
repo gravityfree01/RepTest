@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 /**
     * @class UIController                         // 클래스 이름
     * @author  박성수                  

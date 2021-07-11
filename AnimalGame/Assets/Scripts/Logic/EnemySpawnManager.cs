@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * @class EnemySpawnManager
- * @desc gate 4개에서 Enemy 가 떨어지는 것
- * @author  박성수
- * @date  2021-07-08
+ * @class EnemySpawnManager                       // 클래스 이름
+ * @desc       //클래스 설명
+ * @author  박성수                       // 작성자
+ * @date  2021-07-08        //클래스 작성일자
  */
+
  
 public class EnemySpawnManager : MonoBehaviour
 {

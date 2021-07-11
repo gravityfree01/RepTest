@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/**
+ * @class FeedSpawn                        // 클래스 이름
+ * @desc  피드를 생성하는 클래스     //클래스 설명
+ * @author 정성호                        // 작성자
+ * @date  2021-07-09        //클래스 작성일자
+ */
 
-/** 
-* 사용함수 : 
-* @date : 2021-07-09
-* @author : 정성호
-* @Comment : 
-*/
 
 public class FeedSpawn : MonoBehaviour{
     public Feed feed; // 객체 생성
