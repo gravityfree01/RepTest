@@ -399,7 +399,7 @@ MonoBehaviour:
   gate_2: {fileID: 808494555}
   gate_3: {fileID: 684306088}
   gate_4: {fileID: 1291425126}
-  enemy: {fileID: 8837237979843530183, guid: 9c46c62d519757145a5e94d6594e8b33, type: 3}
+  enemy: {fileID: 8837237979843530183, guid: 721cf75bf85f4024cabf18337146f659, type: 3}
 --- !u!4 &856982203
 Transform:
   m_ObjectHideFlags: 0
