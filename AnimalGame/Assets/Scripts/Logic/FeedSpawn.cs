@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-/**
- * @class FeedSpawn                        // 클래스 이름
- * @desc  피드를 생성하는 클래스     //클래스 설명
- * @author 정성호                        // 작성자
- * @date  2021-07-09        //클래스 작성일자
+/*
+ * @class FeedSpawn
+ * @desc  피드 소환 클래스
+ * @author 정성호
+ * @date  2021-07-09
  */
 
 

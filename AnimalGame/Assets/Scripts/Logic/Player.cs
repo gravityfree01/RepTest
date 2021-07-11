@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * @class Player                         // 클래스 이름
- * @desc 게임이용자 클래스정보를 담는 클래스      //클래스 설명
- * @author  정성호                       // 작성자
- * @date  2021-07-09        //클래스 작성일자
+/*
+ * @class Player
+ * @desc 플레이어 속성 클래스
+ * @author  정성호
+ * @date  2021-07-09
  */
 
 public class Player : MonoBehaviour

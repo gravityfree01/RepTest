@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/**
- * @class MemoryPool                        // 클래스 이름
- * @desc  많은 량의 객체들을 실시간으로 생성하고, 삭제하는 코드로 인해서 메모리가 빠르게 고갈되고, 쌓인 가비지로 인해 버벅거리는 현상이 발생할때 쓰는 클래스   						  //클래스 설명
- * @author  정성호                       // 작성자
- * @date  2021-07-08        //클래스 작성일자
+/*
+ * @class MemoryPool
+ * @desc  오브젝트 풀링 클래스
+ * @author  정성호
+ * @date  2021-07-08
  */
 
 

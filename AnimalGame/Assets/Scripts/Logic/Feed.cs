@@ -4,7 +4,7 @@
  * @class Feed
  * @desc  Feed 속성 클래스
  * @author   정성호
- * @date  2021-07-09        //클래스 작성일자
+ * @date  2021-07-09
  */
 public class Feed : MonoBehaviour
 {
