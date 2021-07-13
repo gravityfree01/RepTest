@@ -10,13 +10,21 @@ public class Feed : MonoBehaviour
 {
     public GameObject feedObject; // feed라는 프리펩 찾기
     public Transform feedLocation; // 이 feed 움직인다.
-    public float MoveSpeed; // 속도 지정
     public float feedDelay; // 지연
     public float DestroyPosY = -3f;
 
+    private float moveSpeed; // 속도 지정
+
+    void OnEnable()
+    {
+        moveSpeed = Random.Range(0, 10);
+
+        Debug.Log("오브젝트 속도: " + moveSpeed);
+    }
+
     void Update()
     {
-        transform.Translate(Vector2.down * MoveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
 
         if (transform.position.y <= DestroyPosY)
             GetComponent<Collider2D>().enabled = false;
@@ -27,10 +35,6 @@ public class Feed : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GetComponent<Collider2D>().enabled = false; // 불 획득시 오브젝트를 삭제
-            /*@author 정성호
-             * @date 2021-07-11
-             * @summary 충돌시 10점 추가
-             */
             Score.score += 10;
         }
         // Sfx.SoundPlay(); // 불 획득시 효과음 발생
