@@ -7,18 +7,15 @@
  * @date  2021-07-11
  */
 
-public class ItemCountdown : MonoBehaviour
-{
+public class ItemCountdown : MonoBehaviour {
     public static float countdown = 5f;
     private TextMesh countdownText;
 
-    void Start()
-    {
+    void Start()    {
         countdownText = GetComponent<TextMesh>();
     }
 
-    void Update()
-    {
+    void Update()    {
         if (countdown <= 0f)
             countdown = 0f;
         else

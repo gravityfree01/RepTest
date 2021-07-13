@@ -8,22 +8,16 @@ using UnityEngine;
  * @desc  오브젝트 풀링 클래스
  * @author  정성호
  * @date  2021-07-08
- */
+ * 특정 게임오브젝트를 실시간으로 생성과 삭제하지 않고,
+ * 미리 생성해 둔 게임오브젝트를 재활용하는 클래스입니다.
+ * MonoBehaviour 상속 안받음. IEnumerable 상속시 foreach 사용 가능
+ * System.IDisposable 관리되지 않는 메모리(리소스)를 해제 함  */
 
-
-// 메모리 풀 클래스
-// 용도 : 특정 게임오브젝트를 실시간으로 생성과 삭제하지 않고,
-//      : 미리 생성해 둔 게임오브젝트를 재활용하는 클래스입니다.
-// MonoBehaviour 상속 안받음. IEnumerable 상속시 foreach 사용 가능
-//System.IDisposable 관리되지 않는 메모리(리소스)를 해제 함
-
-public class MemoryPool : IEnumerable, System.IDisposable
-{
-
+public class MemoryPool : IEnumerable, System.IDisposable   {
     // 아이템 클래스
     class Item
     {
-        public bool active; //사용중인지 여부
+        public bool active; // 사용중인지 여부
         public GameObject gameObject;
     }
 
@@ -42,11 +36,8 @@ public class MemoryPool : IEnumerable, System.IDisposable
         }
     }
 
-    // 메모리 풀 생성
-    // original : 미리 생성해 둘 원본소스
-    // count : 풀 최고 갯수
-    public void Create(Object original, int count)
-    {
+    // 메모리 풀 생성 original : 미리 생성해 둘 원본소스 / count : 풀 최고 갯수
+    public void Create(Object original, int count)    {
         Dispose();
         table = new Item[count];
         for (int i = 0; i < count; i++)
@@ -60,8 +51,7 @@ public class MemoryPool : IEnumerable, System.IDisposable
     }
 
     // 새 아이템 요청 - 쉬고 있는 객체를 반납한다.
-    public GameObject NewItem()
-    {
+    public GameObject NewItem()    {
         if (table == null)
             return null;
         int count = table.Length;
@@ -80,9 +70,7 @@ public class MemoryPool : IEnumerable, System.IDisposable
 
     // 아이템 사용종료 - 사용하던 객체를 쉬게한다.
     // gameOBject : NewItem으로 얻었던 객체
-
-    public void RemoveItem(GameObject gameObject)
-    {
+    public void RemoveItem(GameObject gameObject)    {
         if (table == null || gameObject == null)
             return;
         int count = table.Length;
@@ -99,8 +87,7 @@ public class MemoryPool : IEnumerable, System.IDisposable
     }
 
     // 모든 아이템 사용종료 - 모든 객체를 쉬게한다.
-    public void ClearItem()
-    {
+    public void ClearItem()    {
         if (table == null)
             return;
         int count = table.Length;
@@ -116,9 +103,7 @@ public class MemoryPool : IEnumerable, System.IDisposable
     }
 
     // 메모리 풀 삭제
-    public void Dispose()
-
-    {
+    public void Dispose()    {
         if (table == null)
             return;
         int count = table.Length;

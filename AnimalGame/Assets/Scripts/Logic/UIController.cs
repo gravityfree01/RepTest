@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/**
-    * @class UIController                         // 클래스 이름
+/*
+    * @class UIController
     * @author  박성수                  
     * @date  2021-07-11      
     * @sumary 
     * StartScene - StartScene 스타트버튼 클릭시 인게임이동
-    * Ingame - Home 버튼 클릭시 StartScene 이동
-    */
+    * Ingame - Home 버튼 클릭시 StartScene 이동 */
+
 public class UIController : MonoBehaviour
 {
    

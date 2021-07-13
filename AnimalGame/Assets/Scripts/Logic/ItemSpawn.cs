@@ -8,25 +8,19 @@ using UnityEngine;
  * @date  2021-07-11
  */
 
-public class ItemSpawn : MonoBehaviour
-{
+public class ItemSpawn : MonoBehaviour{
     public Item item;
-
     private MemoryPool memoryPool;           // 메모리 풀
     private GameObject[] itemArray;  // 메모리 풀과 연동하여 사용할 Feed 배열
     private int itemMaxPool = 1;
-
     private TextMesh countdownText;
     private SpriteRenderer spriteRenderer;
-
     private float time = 0f;
 
-    void Start()
-    {
+    void Start()    {
         memoryPool = new MemoryPool();
         memoryPool.Create(item.itemObject, itemMaxPool);
         itemArray = new GameObject[itemMaxPool];
-
         spriteRenderer = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
         countdownText = GetComponent<TextMesh>();
     }
@@ -37,10 +31,8 @@ public class ItemSpawn : MonoBehaviour
         GodMode();
     }
 
-    private void SpawnItem()
-    {
+    private void SpawnItem()    {
         StartCoroutine(ItemCycleControl());
-
         for (int i = 0; i < itemMaxPool; i++)
         {
             if (itemArray[i] == null)
@@ -58,8 +50,7 @@ public class ItemSpawn : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < itemMaxPool; i++)
-        {
+        for (int i = 0; i < itemMaxPool; i++)        {
             if (itemArray[i])
             {
                 if (itemArray[i].GetComponent<Collider2D>().enabled == false)
@@ -72,13 +63,11 @@ public class ItemSpawn : MonoBehaviour
         }
     }
 
-    private void GodMode()
-    {
+    private void GodMode()    {
         if (Item.isEnabled) // 무적 아이템을 먹으면
         {
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
             Debug.Log(Item.isEnabled + " 활성화됨.");
-
             time += Time.deltaTime;
 
             // 무적이 됐을 때
@@ -97,8 +86,7 @@ public class ItemSpawn : MonoBehaviour
         }
     }
 
-    IEnumerator ItemCycleControl()
-    {
+    IEnumerator ItemCycleControl()    {
         yield return new WaitForSeconds(3f);
     }
 }

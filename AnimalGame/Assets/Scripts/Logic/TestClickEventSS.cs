@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * @class TestClickEventSS
+ * @desc 클릭 이벤트 클래스
+ * @author  박성수
+ * @date  2021-07-03 */
 
 public class TestClickEventSS : MonoBehaviour{
     public GameObject btn1;
