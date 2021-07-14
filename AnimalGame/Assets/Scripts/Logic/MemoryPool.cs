@@ -16,11 +16,12 @@ public class MemoryPool : IEnumerable, System.IDisposable{
 
     // 아이템 클래스
     class Item    {
-        public bool active; //사용중인지 여부
+        public bool active;
         public GameObject gameObject;
     }
 
-    Item[] table;    // 열거자 기본 재정의
+    // 열거자 기본 재정의
+    Item[] table;    
     public IEnumerator GetEnumerator()    {
         if (table == null)
             yield break;

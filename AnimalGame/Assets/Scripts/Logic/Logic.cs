@@ -18,12 +18,9 @@ public class Logic : MonoBehaviour {
 
     // 게임 스코어
     private int gameScore = 0;
-
     private float gameTimer = 0f;
 
-
     void Start(){
-
     }
 
     void Update(){
@@ -37,13 +34,6 @@ public class Logic : MonoBehaviour {
 
     }
 
-
-    /* 실질적인 게임로직 함수.
-     * @author 정성호	   
-     * @date 2021-07-04
-     * @summary case GameState.RESUME: 추가
-			 
-     */
     private void GameLogic()
     {
         switch (state)
@@ -95,14 +85,8 @@ public class Logic : MonoBehaviour {
         hp-=1;
     }
 
-
     public void InitHp(){
         hp=3;
     }
-
-   
-
-
-
-
+}
 }

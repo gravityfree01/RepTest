@@ -108,7 +108,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8638853441730261319
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -207,6 +207,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feedObject: {fileID: 8638853441730261319}
   feedLocation: {fileID: 9038169927038242608}
-  MoveSpeed: 1
   feedDelay: 3
   DestroyPosY: -3

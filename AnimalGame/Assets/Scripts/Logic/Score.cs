@@ -7,18 +7,15 @@ using UnityEngine.UI;
  * @author   정성호
  * @date  2021-07-11 */
    
-public class Score : MonoBehaviour
-{
+public class Score : MonoBehaviour {
     public static int score = 0;
     private Text scoreText;
 
-    void Start()
-    {
+    void Start()    {
         scoreText = GetComponent<Text>();
     }
 
-    void Update()
-    {
+    void Update()    {
         scoreText.text = "Score: " + score;
     }
 }

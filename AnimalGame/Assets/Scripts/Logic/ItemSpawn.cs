@@ -7,7 +7,7 @@ using UnityEngine;
  * @author 정성호
  * @date  2021-07-11 */
 
-public class ItemSpawn : MonoBehaviour{
+public class ItemSpawn : MonoBehaviour {
     public Item item;
     private MemoryPool memoryPool; // 메모리 풀
     private GameObject[] itemArray;  // 메모리 풀과 연동하여 사용할 Feed 배열
