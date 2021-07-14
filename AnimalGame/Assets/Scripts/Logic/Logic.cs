@@ -2,29 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /*
  * @class Logic
  * @desc 로직 클래스
  * @author  정성호
- * @date  2021-07-09
- */
+ * @date  2021-07-09 */
 
 public class Logic : MonoBehaviour {
-
     // 생명력.
     private int hp = 3;
 
     // 게임 전체적인 상태값을 가지고 있는 공용체
-    // SH RESUME 추가
     public enum GameState { NONE = 0, READY, PLAY, PAUSE, RESUME, CLEAR, FAIL, SETTINGS, LANGUAGE, SOUND, VIBRATION, AUTOSAVE }
     public GameState state = GameState.NONE;
 
     // 게임 스코어
     private int gameScore = 0;
+
     private float gameTimer = 0f;
 
+
     void Start(){
+
     }
 
     void Update(){
@@ -37,13 +36,16 @@ public class Logic : MonoBehaviour {
         InitHp();
 
     }
- 
+
+
     /* 실질적인 게임로직 함수.
-     * @author 정성호
+     * @author 정성호	   
      * @date 2021-07-04
      * @summary case GameState.RESUME: 추가
+			 
      */
-    private void GameLogic() {
+    private void GameLogic()
+    {
         switch (state)
         {
             case GameState.NONE:
@@ -89,10 +91,18 @@ public class Logic : MonoBehaviour {
     // 플레이어가 어딘가에 충돌했을때 
     public void CollisionPlayer(){
         if (hp<=0) SetState(Logic.GameState.FAIL);
+
         hp-=1;
     }
+
 
     public void InitHp(){
         hp=3;
     }
+
+   
+
+
+
+
 }

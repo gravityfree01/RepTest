@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /*
  * @class MemoryPool
  * @desc  오브젝트 풀링 클래스
@@ -13,35 +12,33 @@ using UnityEngine;
  * MonoBehaviour 상속 안받음. IEnumerable 상속시 foreach 사용 가능
  * System.IDisposable 관리되지 않는 메모리(리소스)를 해제 함  */
 
-public class MemoryPool : IEnumerable, System.IDisposable   {
+public class MemoryPool : IEnumerable, System.IDisposable{
+
     // 아이템 클래스
-    class Item
-    {
-        public bool active; // 사용중인지 여부
+    class Item    {
+        public bool active; //사용중인지 여부
         public GameObject gameObject;
     }
 
-    Item[] table;
-    // 열거자 기본 재정의
-    public IEnumerator GetEnumerator()
-    {
+    Item[] table;    // 열거자 기본 재정의
+    public IEnumerator GetEnumerator()    {
         if (table == null)
             yield break;
         int count = table.Length;
-        for (int i = 0; i < count; i++)
-        {
+        for (int i = 0; i < count; i++)        {
             Item item = table[i];
             if (item.active)
                 yield return item.gameObject;
         }
     }
 
-    // 메모리 풀 생성 original : 미리 생성해 둘 원본소스 / count : 풀 최고 갯수
+    // 메모리 풀 생성
+    // original : 미리 생성해 둘 원본소스
+    // count : 풀 최고 갯수
     public void Create(Object original, int count)    {
         Dispose();
         table = new Item[count];
-        for (int i = 0; i < count; i++)
-        {
+        for (int i = 0; i < count; i++)        {
             Item item = new Item();
             item.active = false;
             item.gameObject = GameObject.Instantiate(original) as GameObject;
@@ -74,11 +71,9 @@ public class MemoryPool : IEnumerable, System.IDisposable   {
         if (table == null || gameObject == null)
             return;
         int count = table.Length;
-        for (int i = 0; i < count; i++)
-        {
+        for (int i = 0; i < count; i++)        {
             Item item = table[i];
-            if (item.gameObject == gameObject)
-            {
+            if (item.gameObject == gameObject)            {
                 item.active = false;
                 item.gameObject.SetActive(false);
                 break;
@@ -91,11 +86,9 @@ public class MemoryPool : IEnumerable, System.IDisposable   {
         if (table == null)
             return;
         int count = table.Length;
-        for (int i = 0; i < count; i++)
-        {
+        for (int i = 0; i < count; i++)        {
             Item item = table[i];
-            if (item != null && item.active)
-            {
+            if (item != null && item.active)            {
                 item.active = false;
                 item.gameObject.SetActive(false);
             }
@@ -108,12 +101,10 @@ public class MemoryPool : IEnumerable, System.IDisposable   {
             return;
         int count = table.Length;
 
-        for (int i = 0; i < count; i++)
-        {
+        for (int i = 0; i < count; i++)        {
             Item item = table[i];
             GameObject.Destroy(item.gameObject);
         }
         table = null;
     }
 }
-

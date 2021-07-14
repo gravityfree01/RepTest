@@ -2,14 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * @class ItemSpawn
- * @desc  피드 소환 클래스
- * @author 정성호
- * @date  2021-07-11
- */
-
-public class FeedSpawnManager : MonoBehaviour {
+public class FeedSpawnManager : MonoBehaviour   {
     Logic logic = null;
     List<GameObject> feedList;
     private void Start(){
@@ -18,16 +11,20 @@ public class FeedSpawnManager : MonoBehaviour {
     }
 
     // 피드 소환하는곳.
-    private void SpawnFeed() {
+    private void SpawnFeed(){
         GameObject obj = Resources.Load("Prefabs/Feed") as GameObject;
         feedList.Add(obj);
     }
 
     // Feed 객체 리스트 전체 지우기
-    private void ClearFeedList() {
+    private void ClearFeedList(){
         for(int i = 0; i< feedList.Count; i++){
             Destroy(feedList[i].gameObject);
         }
         feedList.Clear();
     }
+
+
+
+
 }

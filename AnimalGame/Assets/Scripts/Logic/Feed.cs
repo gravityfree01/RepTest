@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-/*
- * @class Feed
- * @desc  Feed 속성 클래스
+/**
+ * @class
+ * @desc  먹이(코인 등) 관련 클라스
  * @author   정성호
  * @date  2021-07-09
  */
@@ -12,14 +12,14 @@ public class Feed : MonoBehaviour
     public Transform feedLocation; // 이 feed 움직인다.
     public float feedDelay; // 지연
     public float DestroyPosY = -3f;
-
-    private float moveSpeed; // 속도 지정
+    // 210714 추가
+    private int moveSpeed; // 속도 지정
 
     void OnEnable()
     {
         moveSpeed = Random.Range(0, 10);
 
-        Debug.Log("오브젝트 속도: " + moveSpeed);
+        Debug.Log("먹이 속도: " + moveSpeed);
     }
 
     void Update()
@@ -34,10 +34,28 @@ public class Feed : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GetComponent<Collider2D>().enabled = false; // 불 획득시 오브젝트를 삭제
-            Score.score += 10;
+            Debug.Log("먹이를 먹었음.");
+            GetComponent<Collider2D>().enabled = false;
+            Score.score += ChoiceScore(moveSpeed);
         }
-        // Sfx.SoundPlay(); // 불 획득시 효과음 발생
+        // 획득시 효과음 발생 추가할 것
 
+    }
+
+    // 속도에 따른 점수
+    private int ChoiceScore(int moveSpeed)
+    {
+        int score = 0;
+
+        if (moveSpeed <= 3)
+            score = 1;
+
+        if (moveSpeed > 3 && moveSpeed <= 7)
+            score = 5;
+
+        if (moveSpeed > 7  && moveSpeed < 10)
+            score = 10;
+
+        return score;
     }
 }
