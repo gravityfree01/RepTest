@@ -8,7 +8,9 @@ using UnityEngine;
  * @author  정성호
  * @date  2021-07-09 */
 
-public class Logic : MonoBehaviour {
+public class Logic : MonoBehaviour
+{
+
     // 생명력.
     private int hp = 3;
 
@@ -20,73 +22,82 @@ public class Logic : MonoBehaviour {
     private int gameScore = 0;
     private float gameTimer = 0f;
 
-    void Start(){
-    }
 
-    void Update(){
-        GameLogic();
-    }
+void Start()
+{
+}
 
-    private void Init(){
-        state=GameState.NONE;
-        gameScore=0;
-        InitHp();
+void Update()
+{
+    GameLogic();
+}
 
-    }
+private void Init()
+{
+    state = GameState.NONE;
+    gameScore = 0;
+    InitHp();
 
-    private void GameLogic()
+}
+
+// 실질적인 게임로직 함수.
+private void GameLogic()
+{
+    switch (state)
     {
-        switch (state)
-        {
-            case GameState.NONE:
-                Init();
-                break;
-            case GameState.READY:
-                break;
-            case GameState.PLAY:
-                break;
-            case GameState.PAUSE:
-                break;
-            case GameState.RESUME:
-                break;
-            case GameState.CLEAR:
-                break;
-            case GameState.FAIL:
-                break;
-            case GameState.SETTINGS:
-                break;
-            case GameState.LANGUAGE:
-                break;
-            case GameState.SOUND:
-                break;
-            case GameState.VIBRATION:
-                break;
-            case GameState.AUTOSAVE:
-                break;
-        }
+        case GameState.NONE:
+            Init();
+            break;
+        case GameState.READY:
+            break;
+        case GameState.PLAY:
+            break;
+        case GameState.PAUSE:
+            break;
+        case GameState.RESUME:
+            break;
+        case GameState.CLEAR:
+            break;
+        case GameState.FAIL:
+            break;
+        case GameState.SETTINGS:
+            break;
+        case GameState.LANGUAGE:
+            break;
+        case GameState.SOUND:
+            break;
+        case GameState.VIBRATION:
+            break;
+        case GameState.AUTOSAVE:
+            break;
     }
+}
 
-    // 상태값 바꿔주는 함수.
-    public void SetState(Logic.GameState state){
-        if (state<0 || state> GameState.AUTOSAVE) return;
-        this.state=(GameState)state;
+// 상태값 바꿔주는 함수.
+public void SetState(Logic.GameState state)
+{
+    if (state < 0 || state > GameState.AUTOSAVE) return;
+    this.state = (GameState)state;
+}
+
+public int Hp
+{
+    get
+    {
+        return this.hp;
     }
+}
 
-    public int Hp{
-        get{
-            return this.hp;
-        }
-    }
+// 플레이어가 어딘가에 충돌했을때 
+public void CollisionPlayer()
+{
+    if (hp <= 0) SetState(Logic.GameState.FAIL);
 
-    // 플레이어가 어딘가에 충돌했을때 
-    public void CollisionPlayer(){
-        if (hp<=0) SetState(Logic.GameState.FAIL);
+    hp -= 1;
+}
 
-        hp-=1;
-    }
-
-    public void InitHp(){
-        hp=3;
-    }
+public void InitHp()
+{
+    hp = 3;
 }
 }
