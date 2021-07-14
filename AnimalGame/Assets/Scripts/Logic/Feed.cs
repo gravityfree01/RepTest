@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
-/**
+/*
  * @class
  * @desc  먹이(코인 등) 관련 클라스
  * @author   정성호
  * @date  2021-07-09
  */
+
 public class Feed : MonoBehaviour
 {
     public GameObject feedObject; // feed라는 프리펩 찾기
