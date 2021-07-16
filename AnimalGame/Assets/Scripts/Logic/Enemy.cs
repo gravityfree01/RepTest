@@ -34,7 +34,12 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GetComponent<Collider2D>().enabled = false;
-            life.LifeDecrease();
+
+            if (!Item.isEnabled)
+                life.LifeDecrease();
+
+            if (life.HasDead())
+                life.Dead();
         }
     }
 }

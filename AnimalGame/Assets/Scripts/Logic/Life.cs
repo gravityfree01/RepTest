@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*
  * @class Life
@@ -11,6 +14,7 @@ using UnityEngine.UI;
 public class Life : MonoBehaviour
 {
     public int lifeCount = 3;
+
     public Text lifeText;
 
     void Update()
@@ -22,5 +26,18 @@ public class Life : MonoBehaviour
     public void LifeDecrease()
     {
         lifeCount--;
+    }
+
+    public bool HasDead()
+    {
+        if (lifeCount <= 0)
+            return true;
+        else
+            return false;
+    }
+
+    public void Dead()
+    {
+        SceneManager.LoadScene(2);
     }
 }
