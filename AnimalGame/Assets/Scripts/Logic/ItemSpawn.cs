@@ -8,6 +8,10 @@ using UnityEngine;
  * @date  2021-07-11 */
 
 public class ItemSpawn : MonoBehaviour {
+
+    Logic logic;
+
+
     public Item item;
     private MemoryPool memoryPool; // 메모리 풀
     private GameObject[] itemArray;  // 메모리 풀과 연동하여 사용할 Feed 배열
@@ -16,6 +20,10 @@ public class ItemSpawn : MonoBehaviour {
     private TextMesh countdownText;
     private SpriteRenderer spriteRenderer;
     private float time = 0f;
+
+    private void Awake(){
+        logic = GameObject.Find("Logic").gameObject.GetComponent<Logic>();
+    }
 
     void Start()    {
         itemState = true;
@@ -27,6 +35,10 @@ public class ItemSpawn : MonoBehaviour {
     }
 
     void Update()    {
+        // 양동건
+        // 예외 처리 코드
+        if (logic.state!=Logic.GameState.PLAY) return;
+
         SpawnItem();
         GodMode();
     }
@@ -61,7 +73,7 @@ public class ItemSpawn : MonoBehaviour {
     private void GodMode()    {
         if (Item.isEnabled)        {  // 무적 아이템을 먹으면
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
-            Debug.Log(Item.isEnabled + " 활성화됨.");
+            //Debug.Log(Item.isEnabled + " 활성화됨.");
             time += Time.deltaTime;
             // 무적이 됐을 때
             if (time < item.durationTime)

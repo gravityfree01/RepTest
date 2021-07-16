@@ -8,96 +8,123 @@ using UnityEngine;
  * @author  정성호
  * @date  2021-07-09 */
 
-public class Logic : MonoBehaviour
-{
+public class Logic : MonoBehaviour {
+    // 게임 카운트 다운.
 
+    private UIController UIController;
+    public GameObject uiCanvas;
+
+    private float countDownNumber = 5.4f;
+    private enum Direction { STOP = 0, LEFT, RIGHT };
+    Direction dir = Direction.STOP;
     // 생명력.
-    private int hp = 3;
-
+    private int hp = 2;
     // 게임 전체적인 상태값을 가지고 있는 공용체
-    public enum GameState { NONE = 0, READY, PLAY, PAUSE, RESUME, CLEAR, FAIL, SETTINGS, LANGUAGE, SOUND, VIBRATION, AUTOSAVE }
+    public enum GameState { NONE = 0, READY, PLAY, FAIL }
     public GameState state = GameState.NONE;
 
     // 게임 스코어
     private int gameScore = 0;
-    private float gameTimer = 0f;
 
+    // 플레이어 객체
+    private GameObject player;
 
-void Start()
-{
-}
-
-void Update()
-{
-    GameLogic();
-}
-
-private void Init()
-{
-    state = GameState.NONE;
-    gameScore = 0;
-    InitHp();
-
-}
-
-// 실질적인 게임로직 함수.
-private void GameLogic()
-{
-    switch (state)
-    {
-        case GameState.NONE:
-            Init();
-            break;
-        case GameState.READY:
-            break;
-        case GameState.PLAY:
-            break;
-        case GameState.PAUSE:
-            break;
-        case GameState.RESUME:
-            break;
-        case GameState.CLEAR:
-            break;
-        case GameState.FAIL:
-            break;
-        case GameState.SETTINGS:
-            break;
-        case GameState.LANGUAGE:
-            break;
-        case GameState.SOUND:
-            break;
-        case GameState.VIBRATION:
-            break;
-        case GameState.AUTOSAVE:
-            break;
+    private void Awake() {
+        UIController=uiCanvas.GetComponent<UIController>();
     }
-}
 
-// 상태값 바꿔주는 함수.
-public void SetState(Logic.GameState state)
-{
-    if (state < 0 || state > GameState.AUTOSAVE) return;
-    this.state = (GameState)state;
-}
-
-public int Hp
-{
-    get
-    {
-        return this.hp;
+    void Update() {
+        GameLogic();
     }
-}
 
-// 플레이어가 어딘가에 충돌했을때 
-public void CollisionPlayer()
-{
-    if (hp <= 0) SetState(Logic.GameState.FAIL);
+    private void Init() {
+        player=GameObject.Find("JSH_Player").gameObject;
+        state=GameState.READY;
+        gameScore = 0;
+        InitHp();
+        UIController.InitLifeImage();
+    }
 
-    hp -= 1;
-}
+    // 실질적인 게임로직 함수.
+    private void GameLogic() {
+        switch (state) {
+            case GameState.NONE: Init(); break;
+            case GameState.READY: CountDown(); break;
+            case GameState.PLAY: PlayerController(); break;
+            case GameState.FAIL: UIController.FailScene(); break;
+        }
+    }
 
-public void InitHp()
-{
-    hp = 3;
-}
+    // 상태값 바꿔주는 함수.
+    public void SetState(Logic.GameState state) {
+        this.state=(GameState)state;
+    }
+
+    public int Hp {
+        get {
+            return this.hp;
+        }
+    }
+
+    // 플레이어가 어딘가에 충돌했을때 
+    public void CollisionPlayer() {
+        if (hp<1) SetState(Logic.GameState.FAIL);
+        hp-=1;
+        UIController.LifeDown();
+    }
+
+    public void InitHp() {
+        hp=2;
+    }
+
+    private void CountDown(){
+        if (this.countDownNumber<=0)
+        {
+            UIController.HideCountDownText();
+            state=GameState.PLAY;
+        }
+        else{
+            countDownNumber-=Time.fixedDeltaTime;
+            // 타입 캐스팅(정수)
+            int number = (int)countDownNumber;
+            UIController.SetCountDownText(number);
+        }
+        
+    }
+
+    // 플레이어 컨트롤 관리하는 함수
+    private void PlayerController(){
+       // 플랫폼 구분
+#if UNITY_EDITOR
+        // 에디터 마우스 컨트롤.
+    if (Input.GetMouseButton(0)){
+            Vector3 vc = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            if(vc.x > 0.5f) dir = Direction.RIGHT;
+            else dir=Direction.LEFT;
+            PlayerMovement(dir);
+        }
+#else
+        // 안드로이드 터치 컨트롤
+        if (Input.touchCount>=1){
+            Vector3 vc = Camera.main.ScreenToViewportPoint(Input.GetTouch(0).position);
+            if (vc.x>0.5f) dir=Direction.RIGHT;
+            else dir=Direction.LEFT;
+            PlayerMovement(dir);
+        }
+#endif
+
+    }
+    private void  PlayerMovement(Direction dir){
+        if(dir == Direction.LEFT){
+            if (!player.GetComponent<Player>().MoveLeft()){
+                dir=Direction.STOP;
+            }
+        }
+        else if(dir ==Direction.RIGHT){
+            if (!player.GetComponent<Player>().MoveRight()){
+                dir=Direction.STOP;
+            }
+        }
+
+    }
 }

@@ -17,15 +17,16 @@ public class ResumeCountdown : MonoBehaviour
 
     void OnEnable()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        Time.timeScale=1;
     }
 
     void Start()
     {
-        countdownText = GetComponent<Text>();
-        spriteRenderer = GameObject.FindGameObjectWithTag("CountdownPanel").GetComponent<SpriteRenderer>();
+        //countdownText = GetComponent<Text>();
+        //spriteRenderer = GameObject.FindGameObjectWithTag("CountdownPanel").GetComponent<SpriteRenderer>();
 
-        StartCoroutine(CountdownToStart());
+        //StartCoroutine(CountdownToStart());
     }
 
     IEnumerator CountdownToStart()

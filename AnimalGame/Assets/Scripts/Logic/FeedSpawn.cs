@@ -9,8 +9,9 @@ using UnityEngine;
  */
 
 
-public class FeedSpawn : MonoBehaviour
-{
+public class FeedSpawn : MonoBehaviour {
+
+    Logic logic;
     public Feed feed; // 객체 생성
 
     private MemoryPool memoryPool;           // 메모리 풀
@@ -26,20 +27,30 @@ public class FeedSpawn : MonoBehaviour
         memoryPool.Dispose();
     }
 
+
+    private void Awake() {
+        logic=GameObject.Find("Logic").gameObject.GetComponent<Logic>();
+    }
+
+
     void Start()
     {
-        feedState = true;
+        feedState=true;
 
         // 메모리 풀을 초기화합니다.
-        memoryPool = new MemoryPool();
+        memoryPool=new MemoryPool();
         // feedMaxPool만큼 생성합니다.
         memoryPool.Create(feed.feedObject, feedMaxPool);
         // 배열도 초기화 합니다.(이때 모든 값은 null이 됩니다.)
-        feedArray = new GameObject[feedMaxPool];
+        feedArray=new GameObject[feedMaxPool];
     }
 
-    void Update()
-    {
+    void Update() {
+
+        // 양동건
+        // 플레이 중이 아니라면 업데이트 돌지 못하도록 
+        if (logic.state!=Logic.GameState.PLAY) return;
+
         // 매 프레임마다 GenerateFeed 함수를 체크한다.
         SpawnFeed();
     }
@@ -74,10 +85,10 @@ public class FeedSpawn : MonoBehaviour
                         isEndPoint = false;
                     vector.x = posX;
                     vector.y = 5f;
-                    feed.feedLocation.transform.position = vector;
+                    feed.transform.position = vector;
 
                     // 해당 Feed 위치를 Feed 발사지점으로 맞춘다.
-                    feedArray[i].transform.position = feed.feedLocation.transform.position;
+                    feedArray[i].transform.position = feed.transform.position;
                     // 발사 후에 for문을 바로 빠져나간다.
                     break;
                 }

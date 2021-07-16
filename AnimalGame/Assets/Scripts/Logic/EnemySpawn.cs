@@ -17,18 +17,27 @@ public class EnemySpawn : MonoBehaviour
     private int enemyMaxPool = 10;
     private bool enemyState = false;
 
-    void Update()
-    {
-        SpawnEnemy();
+
+    private Logic logic;
+
+    private void Awake(){
+        logic=GameObject.Find("Logic").gameObject.GetComponent<Logic>();
     }
 
-    void Start()
-    {
+    void Start(){
         enemyState = true;
-
         memoryPool = new MemoryPool();
         memoryPool.Create(enemy.enemyObject, enemyMaxPool);
         enemyArray = new GameObject[enemyMaxPool];
+    }
+
+    void Update(){
+
+        // 양동건
+        // 예외 처리.
+        if (logic.state != Logic.GameState.PLAY) return;
+
+        SpawnEnemy();
     }
 
     private void SpawnEnemy()

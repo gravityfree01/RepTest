@@ -24,6 +24,10 @@ public class Background : MonoBehaviour
 
     void Update()
     {
+
+        // 예외처리 코드. 추가.
+        if (sprites.Length<1) return;
+
         // 이동구현
         Vector3 curPos = transform.position;
         Vector3 nextPos = Vector3.down * speed * Time.deltaTime;

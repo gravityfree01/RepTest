@@ -9,21 +9,22 @@
 public class Feed : MonoBehaviour
 {
     public GameObject feedObject; // feed라는 프리펩 찾기
-    public Transform feedLocation; // 이 feed 움직인다.
+
+    // 불필요 변수.
+    //public Transform feedLocation; // 이 feed 움직인다.
     public float feedDelay; // 지연
-    public float DestroyPosY = -3f;
+    public float DestroyPosY = -7f;
     // 210714 추가
     private int moveSpeed; // 속도 지정
 
-    void OnEnable()
-    {
+    void OnEnable(){
         moveSpeed = Random.Range(0, 10);
 
-        Debug.Log("먹이 속도: " + moveSpeed);
+        //Debug.Log("먹이 속도: " + moveSpeed);
     }
 
-    void Update()
-    {
+    void Update(){
+
         transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
 
         if (transform.position.y <= DestroyPosY)
@@ -34,7 +35,6 @@ public class Feed : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("먹이를 먹었음.");
             GetComponent<Collider2D>().enabled = false;
             Score.score += ChoiceScore(moveSpeed);
         }
