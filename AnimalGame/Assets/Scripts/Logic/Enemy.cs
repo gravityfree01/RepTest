@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
             if (!Item.isEnabled)
                 life.LifeDecrease();
 
-            if (life.HasDead())
+            if (life.HasDied())
                 life.Dead();
         }
     }

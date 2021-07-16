@@ -53,7 +53,7 @@ public class Feed : MonoBehaviour
         if (moveSpeed > 3 && moveSpeed <= 7)
             score = 5;
 
-        if (moveSpeed > 7  && moveSpeed < 10)
+        if (moveSpeed > 7 && moveSpeed < 10)
             score = 10;
 
         return score;

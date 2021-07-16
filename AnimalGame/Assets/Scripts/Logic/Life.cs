@@ -28,7 +28,7 @@ public class Life : MonoBehaviour
         lifeCount--;
     }
 
-    public bool HasDead()
+    public bool HasDied()
     {
         if (lifeCount <= 0)
             return true;

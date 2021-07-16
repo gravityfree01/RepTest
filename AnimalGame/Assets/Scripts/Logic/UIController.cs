@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
     * @sumary 
     * StartScene - StartScene 스타트버튼 클릭시 인게임이동
     * Ingame - Home 버튼 클릭시 StartScene 이동 */
+    
 public class UIController : MonoBehaviour
 {
     public GameObject btn1;
