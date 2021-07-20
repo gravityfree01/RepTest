@@ -35,11 +35,10 @@ public class Feed : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            print("코인먹음");
             GetComponent<Collider2D>().enabled = false;
             Score.score += ChoiceScore(moveSpeed);
         }
-        // 획득시 효과음 발생 추가할 것
-
     }
 
     // 속도에 따른 점수

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8125279675309764177}
   - component: {fileID: 5079783753509663209}
   - component: {fileID: 1534796205631929690}
-  - component: {fileID: 5885334586180631162}
   - component: {fileID: 5238189610499855490}
   - component: {fileID: 6232078892440266523}
+  - component: {fileID: 1696554747585835298}
   m_Layer: 0
   m_Name: Feed
   m_TagString: Feed
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8638853441730261319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,22 +82,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43178746, y: 0.54542994}
   m_EdgeRadius: 0
---- !u!114 &5885334586180631162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8638853441730261319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd33c099a900cc748b24c610d696b644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feedObject: {fileID: 8638853441730261319}
-  feedLocation: {fileID: 0}
-  feedDelay: 0.5
-  DestroyPosY: -3
 --- !u!212 &5238189610499855490
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -168,3 +152,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1696554747585835298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8638853441730261319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd33c099a900cc748b24c610d696b644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedObject: {fileID: 8638853441730261319}
+  feedDelay: 0.5
+  DestroyPosY: -3

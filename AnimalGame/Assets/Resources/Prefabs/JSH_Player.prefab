@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1825526342237666306}
   - component: {fileID: 383066390}
   - component: {fileID: 2476103026420462687}
+  - component: {fileID: 2177998954684134384}
   m_Layer: 0
   m_Name: JSH_Player
   m_TagString: Player
@@ -143,3 +144,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2177998954684134384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198920284227890973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6cee212e864cc44e96fb68cce47d370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundExplosion: {fileID: 8300000, guid: 6ed3e7aacec95d5488656e55d670d4df, type: 3}

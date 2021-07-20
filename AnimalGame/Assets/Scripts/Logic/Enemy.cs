@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour{
 
     // 로직 컴포넌트
     Logic logic;
-    private Life life;
 
     public GameObject enemyObject;
     public Transform enemyLocation;
