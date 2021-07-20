@@ -11,7 +11,7 @@ using UnityEngine;
 public class Logic : MonoBehaviour {
     // 게임 카운트 다운.
 
-    private UIController UIController;
+    private UIController uiController;
     public GameObject uiCanvas;
 
     private float countDownNumber = 5.4f;
@@ -30,7 +30,7 @@ public class Logic : MonoBehaviour {
     private GameObject player;
 
     private void Awake() {
-        UIController=uiCanvas.GetComponent<UIController>();
+        uiController=uiCanvas.GetComponent<UIController>();
     }
 
     void Update() {
@@ -42,7 +42,7 @@ public class Logic : MonoBehaviour {
         state=GameState.READY;
         gameScore = 0;
         InitHp();
-        UIController.InitLifeImage();
+        uiController.InitLifeImage();
     }
 
     // 실질적인 게임로직 함수.
@@ -51,7 +51,7 @@ public class Logic : MonoBehaviour {
             case GameState.NONE: Init(); break;
             case GameState.READY: CountDown(); break;
             case GameState.PLAY: PlayerController(); break;
-            case GameState.FAIL: UIController.FailScene(); break;
+            case GameState.FAIL: uiController.FailScene(); break;
         }
     }
 
@@ -70,7 +70,7 @@ public class Logic : MonoBehaviour {
     public void CollisionPlayer() {
         if (hp<1) SetState(Logic.GameState.FAIL);
         hp-=1;
-        UIController.LifeDown();
+        uiController.LifeDown();
     }
 
     public void InitHp() {
@@ -80,14 +80,14 @@ public class Logic : MonoBehaviour {
     private void CountDown(){
         if (this.countDownNumber<=0)
         {
-            UIController.HideCountDownText();
+            uiController.HideCountDownText();
             state=GameState.PLAY;
         }
         else{
             countDownNumber-=Time.fixedDeltaTime;
             // 타입 캐스팅(정수)
             int number = (int)countDownNumber;
-            UIController.SetCountDownText(number);
+            uiController.SetCountDownText(number);
         }
         
     }
@@ -97,7 +97,7 @@ public class Logic : MonoBehaviour {
        // 플랫폼 구분
 #if UNITY_EDITOR
         // 에디터 마우스 컨트롤.
-    if (Input.GetMouseButton(0)){
+        if (Input.GetMouseButton(0)){
             Vector3 vc = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             if(vc.x > 0.5f) dir = Direction.RIGHT;
             else dir=Direction.LEFT;
