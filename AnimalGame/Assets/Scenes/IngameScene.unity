@@ -266,7 +266,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 885127193}
+      - m_Target: {fileID: 885127194}
         m_MethodName: StartScene
         m_Mode: 1
         m_Arguments:
@@ -1226,6 +1226,7 @@ GameObject:
   - component: {fileID: 885127190}
   - component: {fileID: 885127189}
   - component: {fileID: 885127193}
+  - component: {fileID: 885127194}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1334,6 +1335,18 @@ MonoBehaviour:
   - {fileID: 1969172333}
   - {fileID: 467836578}
   - {fileID: 716427585}
+--- !u!114 &885127194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885127188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee94b7554474814fa70dc17ed11a668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1071182286
 GameObject:
   m_ObjectHideFlags: 0
