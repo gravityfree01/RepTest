@@ -50,5 +50,30 @@ public class UIController : MonoBehaviour{
     public void FailScene(){
         SceneManager.LoadScene(2);
     }
+<<<<<<< HEAD:AnimalGame/Assets/Scripts/Logic/UIController.cs
     
+=======
+
+    public void StartScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    // 인게임씬
+    public void IngameScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+    // 게임오버
+    public void FailScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+    // 헬프씬
+    public void HelpScene()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+>>>>>>> d1238aea4d4546149fd7c5369b12de84500bc5a7:AnimalGame/Assets/Scripts/UI_Controller/UIController.cs
 }

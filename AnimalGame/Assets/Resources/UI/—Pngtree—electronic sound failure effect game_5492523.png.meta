@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ef66e0fa0bd6c74db78297f71b54cfc
+guid: 083ee996b8134b04bb189458c9234d3b
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -39,17 +39,17 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 58, y: 372, z: 56, w: 236}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -105,10 +105,10 @@ TextureImporter:
       name: "\u2014Pngtree\u2014electronic sound failure effect game_5492523_0"
       rect:
         serializedVersion: 2
-        x: 76
-        y: 373
-        width: 1085
-        height: 613
+        x: 17
+        y: 381
+        width: 1172
+        height: 585
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
